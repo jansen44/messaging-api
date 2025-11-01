@@ -3,18 +3,17 @@ from django.db import models
 from api.utils.models import get_sentinel_user
 
 
-class Message(models.Model):
-    content = models.CharField(max_length=1024)
+class Thread(models.Model):
+    title = models.CharField(max_length=1024, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    author = models.ForeignKey(
+    created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        related_name="messages",
+        related_name="authored",
         on_delete=models.SET(get_sentinel_user),
     )
-    thread = models.ForeignKey(
-        "api.Thread",
-        related_name="messages",
-        on_delete=models.CASCADE
+    participants = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="threads",
     )
 

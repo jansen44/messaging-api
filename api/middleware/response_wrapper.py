@@ -1,6 +1,6 @@
-import uuid
 from django.utils.deprecation import MiddlewareMixin
 from rest_framework.response import Response
+
 
 class APIResponseWrapperMiddleware(MiddlewareMixin):
     def should_not_process(self, response):

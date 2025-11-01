@@ -1,7 +1,8 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import permissions, generics
 
-from api.models.message import Message
-from api.serializers.message import MessageSerializer
+from api.models import Message, Thread
+from api.serializers import MessageSerializer
 
 
 class MessageListCreate(generics.ListCreateAPIView):
@@ -9,10 +10,17 @@ class MessageListCreate(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Message.objects.filter(author=self.request.user)
+        thread_id = self.kwargs["thread_id"]
+        thread = get_object_or_404(Thread, pk=thread_id, participants=self.request.user)
+        return (
+            Message.objects
+            .filter(thread_id=thread.id)
+            .select_related("author")
+            .order_by("created_at")
+        )
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
-    
-    
+        thread_id = self.kwargs["thread_id"]
+        thread = get_object_or_404(Thread, pk=thread_id, participants=self.request.user)
+        serializer.save(author=self.request.user, thread=thread)
 

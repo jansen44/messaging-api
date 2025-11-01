@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from api.models.message import Message
+from api.models import Message, Thread
 
 
 class MessageAuthorSerializer(serializers.ModelSerializer):
@@ -15,3 +15,4 @@ class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
         fields = ["id", "content", "created_at", "author"]
+

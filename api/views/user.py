@@ -1,7 +1,7 @@
 from rest_framework import permissions, generics
 
 from django.contrib.auth import get_user_model
-from api.serializers.user import UserSerializer, UserUpdateSerializer
+from api.serializers import UserSerializer, UserUpdateSerializer
 
 
 class UserRegister(generics.CreateAPIView):
