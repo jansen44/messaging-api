@@ -17,3 +17,6 @@ class Thread(models.Model):
         related_name="threads",
     )
 
+    class Meta:
+        ordering = ("-created_at", "-id")
+

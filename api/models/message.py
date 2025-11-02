@@ -18,3 +18,5 @@ class Message(models.Model):
         on_delete=models.CASCADE
     )
 
+    class Meta:
+        ordering = ("created_at", "-id")
