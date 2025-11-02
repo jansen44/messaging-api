@@ -1,6 +1,6 @@
 from django.utils.deprecation import MiddlewareMixin
 from rest_framework.response import Response
-
+# from django.db import connection
 
 class APIResponseWrapperMiddleware(MiddlewareMixin):
     def should_not_process(self, response):
@@ -9,6 +9,9 @@ class APIResponseWrapperMiddleware(MiddlewareMixin):
             or "error" in response.data
 
     def process_response(self, request, response):
+        # for q in connection.queries:
+        #     print(q.get("sql", ""))
+
         if self.should_not_process(response):
             return response
 

@@ -6,11 +6,13 @@ from rest_framework.response import Response
 def custom_exception_handler(exc, context):
     response = exception_handler(exc, context)
 
+    # TODO: improve error messages
     if response is not None and response.data is not None:
+        key = next(iter(response.data))
         response.data = {
             "status": response.status_code,
             "error": {
-                "message": response.data.get("detail", "An error occurred."),
+                "message": repr(response.data.get(key)),
                 "code": exc.__class__.__name__,
             },
         }

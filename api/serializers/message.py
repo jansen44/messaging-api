@@ -16,3 +16,11 @@ class MessageSerializer(serializers.ModelSerializer):
         model = Message
         fields = ["id", "content", "created_at", "author"]
 
+
+class MessageSearchResultSerializer(serializers.ModelSerializer):
+    author = MessageAuthorSerializer(read_only=True)
+    match_index = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = Message
+        fields = ["id", "content", "created_at", "author", "match_index"]

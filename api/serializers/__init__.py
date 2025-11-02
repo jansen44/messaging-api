@@ -1,6 +1,7 @@
 from .message import (
     MessageAuthorSerializer,
     MessageSerializer,
+    MessageSearchResultSerializer,
 )
 from .thread import (
         ThreadSerializer,
