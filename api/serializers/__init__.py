@@ -12,3 +12,6 @@ from .user import (
         UserSerializer,
         UserUpdateSerializer,
 )
+from .jwt import (
+    EmailTokenObtainPairSerializer,
+)

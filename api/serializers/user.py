@@ -11,10 +11,11 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ["id", "username", "email", "first_name", "last_name", "password"]
+        fields = ["id", "email", "name", "password"]
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ["email", "first_name", "last_name"]
+        fields = ["id", "email", "name"]
+        read_only_fields = ["id", "email"]

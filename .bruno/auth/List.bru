@@ -1,0 +1,23 @@
+meta {
+  name: List
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{url}}/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "jj@example.com",
+    "password": "123"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

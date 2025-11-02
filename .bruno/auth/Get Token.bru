@@ -1,0 +1,29 @@
+meta {
+  name: Get Token
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/token
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "jj",
+    "password": "123"
+  }
+}
+
+script:post-response {
+  let data = res.body.data;
+  bru.setVar("token", data.access);
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

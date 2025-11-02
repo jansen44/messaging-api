@@ -1,0 +1,27 @@
+meta {
+  name: Update Profile
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{url}}/profile
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "email": "jsd.alcantara@gmail.com",
+    "first_name": "Jansen"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

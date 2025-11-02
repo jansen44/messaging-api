@@ -5,8 +5,8 @@ from api import views
 
 
 urlpatterns = [
-    path('token', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
+    path('token', views.EmailTokenObtainPair.as_view(), name='token_obtain_pair'),
+    path('token/refresh', views.EmailTokenObtainPair.as_view(), name='token_refresh'),
 
     path("register", views.UserRegister.as_view()),
     path("profile", views.UserProfile.as_view()),

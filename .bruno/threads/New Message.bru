@@ -1,0 +1,26 @@
+meta {
+  name: New Message
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/threads/14/messages
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "content": "sim, e com vc?"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

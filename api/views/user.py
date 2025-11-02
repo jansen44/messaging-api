@@ -4,7 +4,8 @@ from django.contrib.auth import get_user_model
 from api.serializers import UserSerializer, UserUpdateSerializer
 
 
-class UserRegister(generics.CreateAPIView):
+# List here is temporary to make debugging easier
+class UserRegister(generics.ListCreateAPIView):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 
@@ -19,4 +20,5 @@ class UserProfile(generics.RetrieveUpdateAPIView):
 
     def get_serializer_class(self):
         return UserUpdateSerializer if self.request.method == 'PUT' else UserSerializer
+
 

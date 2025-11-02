@@ -15,7 +15,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 100,
 }
 
 
@@ -50,6 +50,8 @@ ROOT_URLCONF = 'cleferchats.urls'
 
 WSGI_APPLICATION = 'cleferchats.wsgi.application'
 
+
+AUTH_USER_MODEL = "api.User"
 
 AUTH_PASSWORD_VALIDATORS = [
     {

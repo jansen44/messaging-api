@@ -1,0 +1,24 @@
+meta {
+  name: List User Thread
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{url}}/threads
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -5,7 +5,7 @@ from api.models import Thread
 class ThreadUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ["id", "username"]
+        fields = ["id", "email"]
 
 
 class ThreadSerializer(serializers.ModelSerializer):

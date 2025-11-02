@@ -6,7 +6,7 @@ from api.models import Message, Thread
 class MessageAuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ["id", "username"]
+        fields = ["id", "email"]
 
 
 class MessageSerializer(serializers.ModelSerializer):
