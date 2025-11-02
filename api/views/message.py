@@ -48,4 +48,3 @@ class MessageSearch(generics.ListAPIView):
             .annotate(match_index=match_index)
         )
 
-

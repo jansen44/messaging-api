@@ -26,14 +26,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(unique=True)
     name = models.CharField(max_length=100, blank=True)
 
-    is_active = models.BooleanField(
-        _("active"),
-        default=True,
-        help_text=_(
-            "Designates whether this user should be treated as active. "
-            "Unselect this instead of deleting accounts."
-        ),
-    )
+    is_active = models.BooleanField(default=True)
 
     objects = UserManager()
 

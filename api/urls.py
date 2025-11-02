@@ -15,3 +15,4 @@ urlpatterns = [
     path("threads/<int:thread_id>/messages", views.MessageListCreate.as_view()),
     path("threads/<int:thread_id>/messages/search", views.MessageSearch.as_view()),
 ]
+

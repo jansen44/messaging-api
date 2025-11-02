@@ -21,4 +21,3 @@ class UserProfile(generics.RetrieveUpdateAPIView):
     def get_serializer_class(self):
         return UserUpdateSerializer if self.request.method == 'PUT' else UserSerializer
 
-
