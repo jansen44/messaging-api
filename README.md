@@ -2,7 +2,7 @@
 Very simple implementation of Messaging System API (thread-oriented).
 
 ## Features:
-- [x] Basic auth (register/login);
+- [x] Basic auth (register/login) using email+password;
 - [x] Create threads between 1 or more users (unlimited for now);
 - [x] Send and read messages from threads;
 - [x] Search any message in a thread;
