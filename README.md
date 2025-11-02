@@ -10,7 +10,7 @@ Very simple implementation of Messaging System API (thread-oriented).
 
 # Running locally
 > [!NOTE]
-> This doc assumes you're running postgres through the provided .devcontainer setup, hence you need docker or similar container engine compatible with docker compose.
+> This doc assumes you're running postgres through the provided .devcontainer setup, hence you need docker or similar container engine compatible with docker compose, and run `docker compose up -d` from inside .devcontainer.
 
 ## Setup
 ```bash
